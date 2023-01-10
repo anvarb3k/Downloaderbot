@@ -12,17 +12,24 @@ async def tiktoker(message: types.Message):
     await message.answer_video(video=video, caption="<b>Video Tiktokdan @fastdownvideobot tomonidan yuklandi✅</b>")
 
 
-
+# Instagramdan video yuklashi uchun handler
+# ^Reels yuklashu uchun
 @dp.message_handler(Text(startswith="https://www.instagram.com/reel/"))
 async def tiktoker(message: types.Message):
     msg = message.text
     video = insta(msg)
     await message.answer_video(video=video, caption="<b>Video Instagramdan @fastdownvideobot tomonidan yuklandi✅</b>")
 
+#^Stories yuklashi uchun
 @dp.message_handler(Text(startswith="https://www.instagram.com/stories/"))
 async def tiktoker(message: types.Message):
-    await message.answer("Bot faqat videolarni yuklab beradi!")
+    msg = message.text
+    video = insta(msg)
+    await message.answer_video(video=video, caption="<b>Video Instagramdan @fastdownvideobot tomonidan yuklandi✅</b>")
 
+#^Video yuklashi uchun
 @dp.message_handler(Text(startswith="https://www.instagram.com/p/"))
 async def tiktoker(message: types.Message):
-    await message.answer("Bot faqat videolarni yuklab beradi!")
+    msg = message.text
+    video = insta(msg)
+    await message.answer_video(video=video, caption="<b>Video Instagramdan @fastdownvideobot tomonidan yuklandi✅</b>")
