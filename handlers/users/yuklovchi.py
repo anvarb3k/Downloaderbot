@@ -38,6 +38,18 @@ def insta(link):
     rest = resp['video']
     return rest
 
+def stories(link):
+    url = "https://facebook-story-saver-and-video-downloader.p.rapidapi.com/"
 
-# inp = input("link: ")
-# print(insta(inp))
+    payload = f"URL={link}"
+    headers = {
+        "content-type": "application/x-www-form-urlencoded",
+        "X-RapidAPI-Key": "42d6f07749mshb9b66ec144acdc4p132b88jsn786d4996054d",
+        "X-RapidAPI-Host": "facebook-story-saver-and-video-downloader.p.rapidapi.com"
+    }
+
+    response = requests.request("POST", url, data=payload, headers=headers)
+    result = response.text
+    res = json.loads(result)
+    respons = res
+    return respons
