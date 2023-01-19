@@ -18,6 +18,11 @@ async def tiktoker(message: types.Message, state: FSMContext):
     video = tiktok(link=msg)
     await message.answer_video(video=video, caption="<b>Downloaded by @fastdownvideobot✅</b>")
 
+@dp.message_handler(Text(startswith="https://vt.tiktok.com"), state=Yuklovchi.download)
+async def tiktoker(message: types.Message, state: FSMContext):
+    msg = message.text
+    video = tiktok(link=msg)
+    await message.answer_video(video=video, caption="<b>Downloaded by @fastdownvideobot✅</b>")
 
 # Instagramdan video yuklashi uchun handler
 # ^Reels yuklashu uchun
