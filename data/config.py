@@ -9,10 +9,7 @@ BOT_TOKEN = env.str("BOT_TOKEN")  # Bot toekn
 ADMINS = env.list("ADMINS")  # adminlar ro'yxati
 CHANNELS = ['@blogca']
 
-dbport = env.int('dbport')
-dbhost = env.str('dbhost')
-dbname = env.str('dbname')
-dbuser = env.str('dbuser')
-dbpassword = env.str('dbpassword')
-
-DATABASE_URL = "postgres://{}:{}@{}:{}/{}".format(dbuser, dbpassword, dbhost, dbport, dbname)
+DB_USER = env.str("DB_USER")
+DB_PASS = env.str("DB_PASS")
+DB_NAME = env.str("DB_NAME")
+DB_HOST = env.str("DB_HOST")
