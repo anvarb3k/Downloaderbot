@@ -7,3 +7,4 @@ class Yuklovchi(StatesGroup):
 
 class Fikr(StatesGroup):
     izoh = State()
+    answer = State()
