@@ -3,7 +3,7 @@ from aiogram import types
 from aiogram.dispatcher.filters import Text
 from states.statess import Yuklovchi
 from aiogram.dispatcher import FSMContext
-from .yuklovchi import tiktok, insta, stories
+from .yuklovchi import tiktok, insta, stories, youtube
 
 
 @dp.message_handler(text="📥 Video yuklash", state='*')
@@ -46,3 +46,11 @@ async def tiktoker(message: types.Message, state: FSMContext):
     msg = message.text
     video = insta(link=msg)
     await message.answer_video(video=video, caption="<b>Downloaded by @fastdownvideobot✅</b>")
+
+# Youtube dan video yuklash
+# @dp.message_handler(Text(startswith="https://youtu"), state=Yuklovchi.download)
+# async def youtube_down(message: types.Message, state: FSMContext):
+#     msg = message.text
+#     video_id = msg.split('/')
+#     video = youtube(video_id)
+#     await message.answer_video(video=video, caption="<b>Downloaded by @fastdownvideobot✅</b>")

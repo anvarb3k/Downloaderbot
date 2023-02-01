@@ -7,7 +7,7 @@ env.read_env()
 # .env fayl ichidan quyidagilarni o'qiymiz
 BOT_TOKEN = env.str("BOT_TOKEN")  # Bot toekn
 ADMINS = env.list("ADMINS")  # adminlar ro'yxati
-CHANNELS = ['@blogca']
+CHANNELS = ['@page_ea7']
 
 DB_USER = env.str("DB_USER")
 DB_PASS = env.str("DB_PASS")

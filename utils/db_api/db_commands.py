@@ -44,7 +44,6 @@ class Database:
     async def create_table_users(self):
         sql = """
         CREATE TABLE IF NOT EXISTS Users (
-        id SERIAL PRIMARY KEY,
         user_id INTEGER NOT NULL UNIQUE,
         full_name VARCHAR(255) NOT NULL,
         username TEXT NULL
