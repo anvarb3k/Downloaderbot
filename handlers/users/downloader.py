@@ -1,3 +1,6 @@
+# Bu kod t.me/uzbsobirov tomonidan yozilgan, mualliflik xuquqini saqlang!
+# Faqat API ni oling kodga tegmang!
+
 from loader import dp
 from aiogram import types
 from aiogram.dispatcher.filters import Text
