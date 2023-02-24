@@ -1,10 +1,12 @@
+# Bu kod t.me/uzbsobirov tomonidan yozilgan, mualliflik xuquqini saqlang!
+# Faqat API ni oling kodga tegmang!
+
 from loader import dp
 from aiogram import types
 from aiogram.dispatcher.filters import Text
 from states.statess import Yuklovchi
 from aiogram.dispatcher import FSMContext
-from .yuklovchi import tiktok, insta, stories, youtube
-
+from .yuklovchi import tiktok, insta, stories
 
 # Video yuklash uchun 
 @dp.message_handler(text="📥 Video yuklash", state='*')
@@ -27,9 +29,7 @@ async def tiktoker(message: types.Message, state: FSMContext):
 async def tiktoker(message: types.Message, state: FSMContext):
     msg = message.text
     video = tiktok(link=msg)
-    print(video)
     await message.answer_video(video=video, caption="<b>Downloaded by @fastdownvideobot✅</b>")
-
 
 # Instagramdan video yuklashi uchun handler
 # ^Reels yuklashu uchun
@@ -39,8 +39,7 @@ async def tiktoker(message: types.Message, state: FSMContext):
     video = insta(link=msg)
     await message.answer_video(video=video, caption="<b>Downloaded by @fastdownvideobot✅</b>")
 
-
-# ^Stories yuklashi uchun
+#^Stories yuklashi uchun
 @dp.message_handler(Text(startswith="https://instagram.com/stories/"), state=Yuklovchi.download)
 async def tiktoker(message: types.Message, state: FSMContext):
     msg = message.text
@@ -48,8 +47,7 @@ async def tiktoker(message: types.Message, state: FSMContext):
     vido = video['links'][1]['url']
     await message.answer_video(video=vido, caption="<b>Downloaded by @fastdownvideobot✅</b>")
 
-
-# ^Video yuklashi uchun
+#^Video yuklashi uchun
 @dp.message_handler(Text(startswith="https://www.instagram.com/p/"), state=Yuklovchi.download)
 async def tiktoker(message: types.Message, state: FSMContext):
     msg = message.text
@@ -61,5 +59,5 @@ async def tiktoker(message: types.Message, state: FSMContext):
 # async def youtube_down(message: types.Message, state: FSMContext):
 #     msg = message.text
 #     video_id = msg.split('/')
-#     video = youtube(video_id[3])
+#     video = youtube(video_id)
 #     await message.answer_video(video=video, caption="<b>Downloaded by @fastdownvideobot✅</b>")
