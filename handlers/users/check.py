@@ -32,7 +32,8 @@ async def check_user_subs(call: types.CallbackQuery):
     
     if final_status:
         await call.message.delete()
-        await call.message.answer(text=f"<b>Assalomu aleykum {call.from_user.full_name}! Sizni botda ko'rib turganimizdan xursandmiz😊</b>", reply_markup=main)
+        await call.message.answer(text=f"<b>Assalomu aleykum {call.from_user.full_name}! "
+                                       f"Sizni botda ko'rib turganimizdan xursandmiz😊</b>", reply_markup=main)
     else:
         await call.message.delete()
         await call.message.answer(f"<b>❌ Siz bizning ba'zi kanalimizga obuna bo'lmadingiz</b>", disable_web_page_preview=True, reply_markup=result)

@@ -2,37 +2,38 @@ import requests
 import json
 
 def tiktok(link):
-    url = "https://tiktok-video-no-watermark2.p.rapidapi.com/"
+    url = "https://tiktok82.p.rapidapi.com/getDownloadVideoWithoutWatermark"
 
-    querystring = {"url":link, "hd":"0"}
+    querystring = {
+        "video_url": link}
 
     headers = {
         "X-RapidAPI-Key": "42d6f07749mshb9b66ec144acdc4p132b88jsn786d4996054d",
-        "X-RapidAPI-Host": "tiktok-video-no-watermark2.p.rapidapi.com"
+        "X-RapidAPI-Host": "tiktok82.p.rapidapi.com"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
+
     result = response.text
     rest = json.loads(result)
-    answer = rest['data']['play']
+    answer = rest['video_url']
     return answer
 
 def insta(link):
+    url = "https://instagram-downloader-download-instagram-videos-stories.p.rapidapi.com/index"
 
-    url = "https://instagram-media-downloader.p.rapidapi.com/rapid/post.php"
-
-    querystring = {"url":link}
+    querystring = {"url": link}
 
     headers = {
         "X-RapidAPI-Key": "42d6f07749mshb9b66ec144acdc4p132b88jsn786d4996054d",
-        "X-RapidAPI-Host": "instagram-media-downloader.p.rapidapi.com"
+        "X-RapidAPI-Host": "instagram-downloader-download-instagram-videos-stories.p.rapidapi.com"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
     result = response.text
-    resp= json.loads(result)
-    rest = resp['video']
-    return rest
+    resp = json.loads(result)
+    answer = resp['media']
+    return answer
 
 def stories(link):
     url = "https://facebook-story-saver-and-video-downloader.p.rapidapi.com/"
@@ -44,7 +45,7 @@ def stories(link):
         "X-RapidAPI-Host": "facebook-story-saver-and-video-downloader.p.rapidapi.com"
     }
 
-    response = requests.request("POST", url, data=payload, headers=headers)
+    response = requests.request("GET", url, data=payload, headers=headers)
     result = response.text
     res = json.loads(result)
     respons = res
@@ -63,5 +64,5 @@ def youtube(link):
     response = requests.request("GET", url, headers=headers, params=querystring)
     res = response.text
     resp = json.loads(res)
-    rest = resp['formats'][1]['url']
-    return rest
+    answer = resp['formats'][1]['url']
+    return answer
